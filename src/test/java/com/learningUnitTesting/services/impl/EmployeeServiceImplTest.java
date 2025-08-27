@@ -1,8 +1,10 @@
-package com.learningUnitTesting.repositories;
+package com.learningUnitTesting.services.impl;
 
 import com.learningUnitTesting.TestContainerConfiguration;
 import com.learningUnitTesting.dto.EmployeeDto;
 import com.learningUnitTesting.entities.Employee;
+import com.learningUnitTesting.repositories.EmployeeRepository;
+
 import com.learningUnitTesting.services.impl.EmployeeServiceImpl;
 import org.junit.jupiter.api.BeforeEach;
 import org.junit.jupiter.api.Test;
@@ -13,6 +15,7 @@ import org.mockito.Mock;
 import org.mockito.Spy;
 import org.mockito.junit.jupiter.MockitoExtension;
 import org.modelmapper.ModelMapper;
+
 import org.springframework.boot.test.autoconfigure.jdbc.AutoConfigureTestDatabase;
 import org.springframework.context.annotation.Import;
 
@@ -21,7 +24,6 @@ import java.util.Optional;
 
 import static org.assertj.core.api.Assertions.assertThat;
 import static org.mockito.Mockito.*;
-
 @AutoConfigureTestDatabase(replace = AutoConfigureTestDatabase.Replace.NONE)
 @Import(TestContainerConfiguration.class)
 @ExtendWith(MockitoExtension.class)
@@ -85,6 +87,7 @@ class EmployeeServiceImplTest {
         Employee capturedEmployee = employeeArgumentCaptor.getValue();
         assertThat(capturedEmployee.getEmail()).isEqualTo(mockEmployee.getEmail());
     }
+
 
 
 
