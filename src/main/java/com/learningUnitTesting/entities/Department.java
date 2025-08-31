@@ -3,25 +3,18 @@ package com.learningUnitTesting.entities;
 import jakarta.persistence.*;
 import lombok.*;
 
+@Entity
 @Getter
 @Setter
-@Entity
 @Builder
 @AllArgsConstructor
 @NoArgsConstructor
-public class Employee {
-
+public class Department {
     @Id
     @GeneratedValue(strategy = GenerationType.IDENTITY)
+    @Column(nullable = false)
     private Long id;
 
-    @Column(unique = true)
-    private String email;
+    private String title;
 
-    private String full_name;
-
-    private Long salary;
-
-    @ManyToOne
-    private Department department;
 }
